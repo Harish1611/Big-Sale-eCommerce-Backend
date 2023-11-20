@@ -25,3 +25,16 @@ const ratingSchema = new Schema({
 const Rating = mongoose.model('ratings', ratingSchema);
 
 module.exports = Rating;
+
+
+
+
+
+
+
+
+
+
+
+
+
