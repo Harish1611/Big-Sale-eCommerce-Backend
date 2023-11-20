@@ -12,7 +12,15 @@ app.get("/", (req,res)=>{
 
 const authRouters = require("./routes/auth.route");
 app.use("/auth",authRouters);
+
+const userRouters = require("./routes/user.route");
+app.use("/users",authRouters);
+
+
+
 module.exports = app;
+
+
 
 
 
