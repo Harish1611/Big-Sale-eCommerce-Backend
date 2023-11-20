@@ -4,7 +4,8 @@ Big Sale - eCommerce Backend is the backend of an e-commerce web application bui
 
 ## Tools & Technologies
 
-- ReactJS
 - MongoDB
 - NodeJS
 - ExpressJS
+- Postman
+- Git & GitHub
