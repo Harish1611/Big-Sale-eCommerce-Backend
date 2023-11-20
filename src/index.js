@@ -9,6 +9,9 @@ app.get("/", (req,res)=>{
   return res.status(200).send({message : "Big Sale Sample Route - Backend", status:"true"})
 })
 
+
+const authRouters = require("./routes/auth.route");
+app.use("/auth",authRouters);
 module.exports = app;
 
 
