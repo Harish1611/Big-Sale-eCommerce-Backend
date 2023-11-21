@@ -1,7 +1,7 @@
 const express=require("express");
 const authenticate = require("../middleware/authenticat.js");
 const router=express.Router();
-const adminOrderController=require("../controllers/adminOrder.controller.js")
+const adminOrderController=require("../controller/adminOrder.controller.js")
 
 router.get("/",authenticate,adminOrderController.getAllOrders);
 router.put("/:orderId/confirmed",authenticate,adminOrderController.confirmedOrder);
