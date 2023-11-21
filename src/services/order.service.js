@@ -81,14 +81,63 @@ async function cancelledOrder(orderId) {
   return await order.save();
 }
 
-
-
-
-module.exports = {
-  createOrder,
-  placedOrder,
-  confirmedOrder,
-  shipOrder,
-  deliveredOrder,
-  cancelledOrder
-};
+async function findOrderById(orderId) {
+    const order = await Order.findById(orderId)
+      .populate("user")
+      .populate({path:"orderItems", populate:{path:"product"}})
+      .populate("shippingAddress");
+    
+    return order;
+  }
+  
+  async function usersOrderHistory(userId) {
+    try {
+      const orders = await Order.find({
+        user: userId,
+        orderStatus: "PLACED",
+      })
+        .populate({
+          path: "orderItems",
+          populate: {
+            path: "product",
+          },
+        })
+        .lean();
+  
+  
+      return orders;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+  
+  async function getAllOrders() {
+    return await Order.find().populate({
+      path: "orderItems",
+      populate: {
+        path: "product",
+      },
+    })
+    .lean();;
+  }
+  
+  async function deleteOrder(orderId) {
+    const order = await findOrderById(orderId);
+    if(!order)throw new Error("order not found with id ",orderId)
+  
+    await Order.findByIdAndDelete(orderId);
+  }
+  
+  module.exports = {
+    createOrder,
+    placedOrder,
+    confirmedOrder,
+    shipOrder,
+    deliveredOrder,
+    cancelledOrder,
+    findOrderById,
+    usersOrderHistory,
+    getAllOrders,
+    deleteOrder,
+  };
+  
