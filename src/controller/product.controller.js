@@ -81,7 +81,7 @@ async function getAllProducts(req, res) {
 
 const createMultipleProduct= async (req, res) => {
   try {
-    await productService.createMultipleProduct(req.body)
+    await productService.createMultipleProducts(req.body)
     res
       .status(202)
       .json({ message: "Products Created Successfully", success: true });
