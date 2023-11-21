@@ -62,3 +62,39 @@ async function createProduct(reqData) {
 
   return savedProduct;
 }
+
+// Delete a product by ID
+async function deleteProduct(productId) {
+    const product = await findProductById(productId);
+  
+    if (!product) {
+      throw new Error("product not found with id - : ", productId);
+    }
+  
+    await Product.findByIdAndDelete(productId);
+  
+    return "Product deleted Successfully";
+  }
+  
+  // Update a product by ID
+  async function updateProduct(productId, reqData) {
+    const updatedProduct = await Product.findByIdAndUpdate(productId, reqData);
+    return updatedProduct;
+  }
+  
+  // Find a product by ID
+  async function findProductById(id) {
+    const product = await Product.findById(id).populate("category").exec();
+  
+    if (!product) {
+      throw new Error("Product not found with id " + id);
+    }
+    return product;
+  }
+
+  module.exports = {
+    createProduct,
+    deleteProduct,
+    updateProduct,
+    getAllProducts,
+    findProductById,}
