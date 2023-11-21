@@ -167,10 +167,17 @@ async function getAllProducts(reqQuery) {
     return { content: products, currentPage: pageNumber, totalPages:totalPages };
   }
 
+  // Creates Multiple Products 
+async function createMultipleProduct(products) {
+    for (let product of products) {
+      await createProduct(product);
+    }
+  }
 
   module.exports = {
     createProduct,
     deleteProduct,
     updateProduct,
     findProductById,
-    getAllProducts}
+    getAllProducts,
+    createMultipleProduct}
