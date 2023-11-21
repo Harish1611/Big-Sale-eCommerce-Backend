@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+
 const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
@@ -19,22 +20,22 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    required: true,
-    default: "CUSTOMER",
+    required:true,
+    default:"CUSTOMER"
   },
   mobile: {
     type: String,
   },
-  address: [
+  addresses: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "addresses",
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "addresses",
     },
-  ],
+  ], 
   paymentInformation: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "payment_information",
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "payment_information",
     },
   ],
   ratings: [
@@ -42,7 +43,7 @@ const userSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "ratings",
     },
-  ],
+  ], 
   reviews: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -56,4 +57,5 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model("users", userSchema);
-module.exports.User;
+
+module.exports = User;

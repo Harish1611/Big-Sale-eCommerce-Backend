@@ -1,28 +1,37 @@
-const User = require("../Models/user.model");
+const User = require("../models/user.model.js");
 const bcrypt = require("bcrypt");
-const jwtProvider = require("../config/jwtProvider");
+const jwtProvider = require("../config/jwtProvider.js");
 
-const createUser = async (userData) => {
+const checkMeth = (data) => {
+  console.log(data);
+}
+
+const createUser  = async (userData)=>{
   try {
-    let { firstName, lastName, email, password } = userData;
+ 
+      let {firstName,lastName,email,password}=userData;
 
-    const isUserExist = await User.findOne({ email });
+      const isUserExist=await User.findOne({email});
 
-    if (isUserExist) {
-      throw new Error("User already Exists with email : ", ElementInternals);
-    }
 
-    password = await bcrypt.hash(password, 8);
+      if(isUserExist){
+          throw new Error("user already exist with email : ",email)
+      }
 
-    const user = await User.create({ firstName, lastName, email, password });
+      password=await bcrypt.hash(password,8);
+  
+      const user=await User.create({firstName,lastName,email,password})
 
-    console.log("User Created Successfully", user);
-
-    return user;
+      console.log("user ",user)
+  
+      return user;
+      
   } catch (error) {
-    throw new Error(error.message);
+      console.log("error - ",error.message)
+      throw new Error(error.message)
   }
-};
+
+}
 
 const findUserById = async (userId) => {
   try {
@@ -39,6 +48,7 @@ const findUserById = async (userId) => {
 };
 
 const getUserByEmail = async (email) => {
+  console.log(email)
   try {
     const user = await User.findOne(email);
 
@@ -50,7 +60,7 @@ const getUserByEmail = async (email) => {
   } catch (error) {
     throw new Error(error.message);
   }
-};
+}
 
 const getUserProfileByToken = async (token) => {
   try {
@@ -78,7 +88,8 @@ const getAllUsers = async () => {
   }
 };
 
-module.export = {
+module.exports = {
+  checkMeth,
   createUser,
   findUserById,
   getUserByEmail,
