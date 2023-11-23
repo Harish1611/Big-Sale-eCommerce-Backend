@@ -1,6 +1,8 @@
 <h2 align="center">
  Big Sale - eCommerce Backend - v1.0<br/>
   <a href="https://big-sale-e-commerce-frontend.vercel.app/" target="_blank">Live Website</a>
+</h2>
+
 
 Big Sale - eCommerce Backend is the e-commerce web application backend built with  NodeJS, ExpressJS and MongoDB.
 
