@@ -5,9 +5,10 @@ const userService=require("../services/user.service")
 const authenticate = async(req,res,next)=>{
 
     try {
-        const token=req.headers.authorization?.split(" ")[1]
+        const token= req.headers.authorization?.split(" ")[1]
+        console.log(token)
         if(!token){
-            return req.status(404).send({message:"token not found"})
+            return res.status(404).send({message:"token not found"})
         }
 
         const userId=jwtProvider.getUserIdFromToken(token);
