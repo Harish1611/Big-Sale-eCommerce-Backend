@@ -1,4 +1,6 @@
-# Big Sale - eCommerce Backend
+<h2 align="center">
+ Big Sale - eCommerce Backend - v1.0<br/>
+  <a href="https://big-sale-e-commerce-frontend.vercel.app/" target="_blank">Live Website</a>
 
 Big Sale - eCommerce Backend is the e-commerce web application backend built with  NodeJS, ExpressJS and MongoDB.
 
@@ -82,7 +84,7 @@ To run the BigSale-eCom-Backend App, perform the following actions:
    ```
 
 
-## Big Sale - eCommerce Frontend <a href="https://github.com/Harish1611/Big-Sale-eCommerce-Frontend"> <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/99854022/282251352-7447c788-e1c6-463e-ab4b-c567bd9554d4.png"  alt="protfolio_link"  height="14"  /> </a>
+## Big Sale - eCommerce Frontend <a href="https://github.com/Harish1611/Big-Sale-eCommerce-Frontend"> <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/99854022/282251352-7447c788-e1c6-463e-ab4b-c567bd9554d4.png"  alt="protfolio_link"  height="16"  /> </a>
 
 
  
