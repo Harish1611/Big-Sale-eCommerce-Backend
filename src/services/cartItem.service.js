@@ -68,7 +68,7 @@ async function findCartItemById(cartItemId) {
   if (cartItem) {
     return cartItem;
   } else {
-    throw new CartItemException(`CartItem not found with id: ${cartItemId}`);
+    throw new Error(`CartItem not found with id: ${cartItemId}`);
   }
 }
 

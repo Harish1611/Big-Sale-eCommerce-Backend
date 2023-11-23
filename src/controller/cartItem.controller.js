@@ -15,13 +15,14 @@ async function updateCartItem(req, res) {
 
 async function removeCartItem(req, res) {
     
-    const user = req.user;
+    const user = await req.user;
     
     console.log(user._id,"userId");
+    console.log(req.params.id,"carId");
 
     try {
         await cartItemService.removeCartItem(user._id,req.params.id)
-
+   
       return res.status(200).send({message:"item removed",status:true});
     } catch (err) {
         console.log("error",err.message)
