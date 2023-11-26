@@ -5,9 +5,9 @@ const authenticate = require("../middleware/aunthenticate.js");
 
 
 
-router.post('/',authenticate, productController.createProduct);
-router.post('/creates',authenticate, productController.createMultipleProduct);
-router.delete('/:id',authenticate, productController.deleteProduct);
-router.put('/:id',authenticate, productController.updateProduct);
+router.post('/', productController.createProduct);
+router.post('/creates', productController.createMultipleProduct);
+router.delete('/:id', productController.deleteProduct);
+router.put('/:id', productController.updateProduct);
 
 module.exports=router;
