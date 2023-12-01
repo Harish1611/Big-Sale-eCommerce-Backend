@@ -41,6 +41,9 @@ app.use("/api/ratings",ratingRouter);
 const adminOrderRoutes=require("./routes/adminOrder.routes.js");
 app.use("/api/admin/orders",adminOrderRoutes);
 
+const contactFormRoutes = require("./routes/contactForm.routes.js")
+app.use("/api",contactFormRoutes);
+
 module.exports = app;
 
 
