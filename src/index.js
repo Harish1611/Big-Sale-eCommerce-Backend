@@ -44,6 +44,9 @@ app.use("/api/admin/orders",adminOrderRoutes);
 const contactFormRoutes = require("./routes/contactForm.routes.js")
 app.use("/api",contactFormRoutes);
 
+const paymentRouter = require("./routes/payment.routes.js");
+app.use("/api/payments",paymentRouter)
+
 module.exports = app;
 
 
